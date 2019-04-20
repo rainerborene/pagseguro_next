@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://ws.sandbox.pagseguro.uol.com.br/v3/transactions/E561E89F66D244B880199A5CEB2F6055?appId=app8068575542&appKey=014970ADA1A1E66994443FB99E18B125
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/xml;charset=ISO-8859-1
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 14 Nov 2017 14:31:50 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - public, no-transform, no-cache, max-age=180
+      Content-Type:
+      - application/xml;charset=ISO-8859-1
+      Expires:
+      - Tue, 14 Nov 2017 14:34:49 GMT
+      Vary:
+      - Accept-Encoding,User-Agent
+      Access-Control-Allow-Origin:
+      - https://dev.pagseguro.uol.com.br
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type, origin, accept
+      Content-Length:
+      - '934'
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><transaction><date>2017-11-13T20:09:28.000-02:00</date><code>E561E89F-66D2-44B8-8019-9A5CEB2F6055</code><type>1</type><status>2</status><lastEventDate>2017-11-13T20:13:07.000-02:00</lastEventDate><paymentMethod><type>1</type><code>101</code></paymentMethod><grossAmount>197.00</grossAmount><discountAmount>0.00</discountAmount><creditorFees><installmentFeeAmount>0.00</installmentFeeAmount><intermediationRateAmount>0.40</intermediationRateAmount><intermediationFeeAmount>7.86</intermediationFeeAmount></creditorFees><netAmount>188.74</netAmount><extraAmount>0.00</extraAmount><escrowEndDate>2017-12-13T20:13:07.000-02:00</escrowEndDate><installmentCount>1</installmentCount><itemCount>1</itemCount><items><item><id>1</id><description>Vma</description><quantity>1</quantity><amount>197.00</amount></item></items><sender><email>c33828572362328767599@sandbox.pagseguro.com.br</email><phone><areaCode>11</areaCode><number>99999999</number></phone><documents><document><type>CPF</type><value>69348774549</value></document></documents></sender><shipping><address><street>AVENIDA
+        PAULISTA</street><number>1578</number><complement></complement><district>Bela
+        Vista</district><city>SAO PAULO</city><state>SP</state><country>BRA</country><postalCode>01310200</postalCode></address><type>3</type><cost>0.00</cost></shipping><applications><application><id>app8068575542</id><name>app8068575542</name><role>INTERMEDIATION</role></application></applications><gatewaySystem><type>cielo</type><rawCode
+        xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><rawMessage
+        xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><normalizedCode
+        xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><normalizedMessage
+        xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><authorizationCode>0</authorizationCode><nsu>0</nsu><tid>0</tid><establishmentCode>1056784170</establishmentCode><acquirerName>CIELO</acquirerName></gatewaySystem><primaryReceiver><publicKey>PUB0C4000601CCC4906B8306215C769FF32</publicKey></primaryReceiver></transaction>
+    http_version: 
+  recorded_at: Tue, 14 Nov 2017 14:31:50 GMT
+recorded_with: VCR 3.0.3

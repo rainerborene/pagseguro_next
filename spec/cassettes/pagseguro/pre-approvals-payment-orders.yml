@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/CF0FF9773A3A75266463EFACE34F89EC/payment-orders?email=rainerborene@gmail.com&page=0&status=5&token=95C04C6646BD4DA1948CBAF0684EAE7A
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 03 Nov 2017 03:48:42 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Cache-Control:
+      - public, no-transform, no-cache
+      Content-Type:
+      - application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1
+      Content-Length:
+      - '476'
+      Vary:
+      - User-Agent
+      Access-Control-Allow-Origin:
+      - https://dev.pagseguro.uol.com.br
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type, origin, accept
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"date":"2017-11-03T01:48:43-02:00","resultsInThisPage":1,"currentPage":1,"totalPages":1,"paymentOrders":{"FC8EF5D8AC9245A4AB767EC79CA1DCD7":{"code":"FC8EF5D8AC9245A4AB767EC79CA1DCD7","status":5,"amount":199.00,"grossAmount":199,"lastEventDate":"2017-10-19T09:54:13-02:00","schedulingDate":"2017-11-18T11:14:53-02:00","transactions":[{"code":"03413F2480FF4BE3B446F794F7FBD4C2","date":"2017-10-19T09:53:56-02:00","status":3}],"discount":{"type":"DISCOUNT_PERCENT","value":0}}}}'
+    http_version: 
+  recorded_at: Fri, 03 Nov 2017 03:48:43 GMT
+recorded_with: VCR 3.0.3

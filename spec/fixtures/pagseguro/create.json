@@ -1,0 +1,56 @@
+{
+  "plan": "201D360FF6F66060045F2F95BB1B81C0",
+  "sender": {
+    "name": "Isabella Ferraz",
+    "email": "isabella10@sandbox.pagseguro.com.br",
+    "hash": "36bac552a220d1b5b5074fda57513871d03586dfcef69c17876771f8dc318154",
+    "phone": {
+      "area_code": "31",
+      "number": "991267690"
+    },
+    "documents": [
+      {
+        "type": "CPF",
+        "value": "51104134799"
+      }
+    ],
+    "address": {
+      "street": "Rua Salomão Rodrigues da Silva",
+      "district": "Paquetá",
+      "city": "Belo Horizonte",
+      "state": "MG",
+      "postal_code": "31330490",
+      "country": "BRA",
+      "number": "120"
+    }
+  },
+  "payment_method": {
+    "type": "CREDITCARD",
+    "credit_card": {
+      "token": "e79de33d1c744ad7918f18b8aaf3941a",
+      "holder": {
+        "name": "Isabella Ferraz",
+        "birth_date": "11/02/1992",
+        "phone": {
+          "area_code": "31",
+          "number": "991267690"
+        },
+        "documents": [
+          {
+            "type": "CPF",
+            "value": "51104134799"
+          }
+        ],
+        "billing_address": {
+          "street": "Rua Salomão Rodrigues da Silva",
+          "district": "Paquetá",
+          "city": "Belo Horizonte",
+          "state": "MG",
+          "postal_code": "31330490",
+          "country": "BRA",
+          "number": "120"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request?email=rainerborene@gmail.com&token=95C04C6646BD4DA1948CBAF0684EAE7A
+    body:
+      encoding: UTF-8
+      string: '{"preApproval":{"charge":"auto","name":"MemberKit","details":"Sua área
+        de membros","period":"monthly","amountPerPayment":"199.00"}}'
+    headers:
+      Accept:
+      - application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1
+      User-Agent:
+      - Faraday v0.12.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 03 Nov 2017 03:14:50 GMT
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1
+      Content-Length:
+      - '78'
+      Vary:
+      - User-Agent
+      Access-Control-Allow-Origin:
+      - https://dev.pagseguro.uol.com.br
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type, origin, accept
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"code":"BED5B6EF7C7C962AA4D75F95BD9308C4","date":"2017-11-03T01:14:50-02:00"}'
+    http_version: 
+  recorded_at: Fri, 03 Nov 2017 03:14:50 GMT
+recorded_with: VCR 3.0.3
