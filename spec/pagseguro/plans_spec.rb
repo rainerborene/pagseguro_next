@@ -6,8 +6,8 @@ describe PagSeguro::Plans do
       api = PagSeguro::API.new
       api.plans.create(
         charge: "auto",
-        name: "MemberKit",
-        details: "Sua área de membros",
+        name: "App",
+        details: "Awesome app",
         period: "monthly",
         amount_per_payment: 199.0
       )

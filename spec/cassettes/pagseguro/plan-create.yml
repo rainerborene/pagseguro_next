@@ -5,8 +5,7 @@ http_interactions:
     uri: https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/request?email=rainerborene@gmail.com&token=95C04C6646BD4DA1948CBAF0684EAE7A
     body:
       encoding: UTF-8
-      string: '{"preApproval":{"charge":"auto","name":"MemberKit","details":"Sua área
-        de membros","period":"monthly","amountPerPayment":"199.00"}}'
+      string: '{"preApproval":{"charge":"auto","name":"App","details":"Awesome App","period":"monthly","amountPerPayment":"199.00"}}'
     headers:
       Accept:
       - application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1
