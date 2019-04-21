@@ -59,11 +59,11 @@ module PagSeguro
     private
 
     def site_url
-      PagSeguro.uris[environment][:site]
+      PagSeguro.uris[environment.to_sym][:site]
     end
 
     def api_url
-      PagSeguro.uris[environment][:api]
+      PagSeguro.uris[environment.to_sym][:api]
     end
 
     def environment

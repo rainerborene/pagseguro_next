@@ -1,10 +1,10 @@
-require "pagseguro/version"
 require "hashie"
 require "active_support/core_ext/string/inflections"
 require "active_support/core_ext/module/delegation"
 require "active_support/core_ext/hash/reverse_merge"
 require "active_support/core_ext/string/conversions"
 require "active_support/core_ext/object/json"
+require "active_support/core_ext/module/attribute_accessors"
 
 module PagSeguro
   autoload :API,            "pagseguro/api"
@@ -23,13 +23,11 @@ module PagSeguro
     xml: "application/xml;charset=ISO-8859-1"
   }
 
-  class << self
-    attr_accessor :token
-    attr_accessor :email
-    attr_accessor :app_id
-    attr_accessor :app_key
-    attr_accessor :environment
-  end
+  mattr_accessor :token
+  mattr_accessor :email
+  mattr_accessor :app_id
+  mattr_accessor :app_key
+  mattr_accessor :environment
 
   def self.configure(&block)
     instance_eval(&block)
