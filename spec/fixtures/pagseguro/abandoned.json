@@ -1,0 +1,8 @@
+{
+  "errors": {
+    "error": {
+      "code": "13021",
+      "message": "the requested operation does not support the requested transaction because it's status is: ABANDONED"
+    }
+  }
+}

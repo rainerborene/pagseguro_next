@@ -2,8 +2,7 @@ $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
 require "pagseguro_next"
 require "minitest/autorun"
 require "vcr"
-require "webmock"
-require "pry"
+require "webmock/minitest"
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/cassettes/pagseguro"
@@ -20,6 +19,6 @@ end
 
 class Minitest::Spec
   def json(name)
-    JSON.load File.read("spec/fixtures/#{name}.json")
+    JSON.load File.read("spec/fixtures/pagseguro/#{name}.json")
   end
 end

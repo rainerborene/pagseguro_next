@@ -32,8 +32,15 @@ module PagSeguro
     private
 
     def parse_body(response)
-      parse(response.body["transaction"]).tap do |transaction|
-        transaction.status = STATUSES[transaction.status]
+      parse(response.body).yield_self do |body|
+        if body.transaction?
+          body.transaction.status = STATUSES[body.transaction.status]
+          body.transaction
+        elsif body.errors?
+          body.errors
+        else
+          body
+        end
       end
     end
   end

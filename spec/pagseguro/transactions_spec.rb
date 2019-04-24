@@ -26,4 +26,16 @@ describe PagSeguro::Transactions do
     resp.items.item.amount.must_equal "197.00"
     resp.sender.email.wont_be_nil
   end
+
+  it "should handle abandoned transactions" do
+    code = "F95301-69CA74CA74F2-E334CF9F97DD-689218"
+    stub_request(:get, %r{transactions/notifications}).to_return(
+      headers: { "Content-Type" => "application/json" },
+      body: JSON.generate(json(:abandoned))
+    )
+
+    api = PagSeguro::API.new app: true
+    resp = api.transactions.find_by_notification_code code
+    resp.must_be :error?
+  end
 end
