@@ -19,4 +19,12 @@ describe PagSeguro::Subscriptions do
 
     response.must_be(:success?)
   end
+
+  it "should generate checkout link" do
+    code = "321D3A1AAFAF316CC4E51F8DE0D31D2F"
+    api = PagSeguro::API.new
+    url = api.subscriptions.url(code)
+
+    url.must_equal "https://sandbox.pagseguro.uol.com.br/v2/pre-approvals/request.html?code=#{code}"
+  end
 end

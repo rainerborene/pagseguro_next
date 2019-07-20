@@ -15,5 +15,9 @@ module PagSeguro
 
       api.put("/pre-approvals/#{code}/payment-method", params)
     end
+
+    def url(code)
+      api.build_url :site, "/v2/pre-approvals/request.html", code: code
+    end
   end
 end
