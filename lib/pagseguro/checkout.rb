@@ -1,7 +1,7 @@
 module PagSeguro
   class Checkout < Base
     def create(params)
-      params = build_request(params).to_xml
+      params = build_request(params).to_xml(encoding: "UTF-8")
 
       response = api.post "/v2/checkout", params do |conn|
         conn.headers[:content_type] = FORMATS[:xml]
@@ -27,7 +27,7 @@ module PagSeguro
           items do
             item do
               id params[:id]
-              description params[:description]
+              description { cdata(params[:description]) }
               amount format("%.2f", params[:amount].to_f)
               quantity 1
             end
