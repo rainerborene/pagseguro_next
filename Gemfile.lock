@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    pagseguro_next (0.4.0)
+    pagseguro_next (1.0.1)
       activesupport (>= 4)
-      faraday (>= 0.7.4, < 1.0)
+      faraday (~> 0.17)
       faraday_middleware (~> 0.13)
-      hashie (>= 3.4.6, < 3.7.0)
-      multi_xml (= 0.6.0)
+      hashie (>= 3.4.6)
+      multi_xml (~> 0.6)
       nokogiri (>= 1.6)
 
 GEM
@@ -28,7 +28,7 @@ GEM
     faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
     hashdiff (1.0.1)
-    hashie (3.6.0)
+    hashie (4.1.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     mini_portile2 (2.4.0)
@@ -38,7 +38,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     public_suffix (4.0.4)
-    rake (10.5.0)
+    rake (13.0.1)
     safe_yaml (1.0.5)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
@@ -57,7 +57,7 @@ DEPENDENCIES
   bundler (~> 1.17)
   minitest (~> 5.0)
   pagseguro_next!
-  rake (~> 10.0)
+  rake (>= 12.3.3)
   vcr (~> 4.0)
   webmock (~> 3.5)
 
