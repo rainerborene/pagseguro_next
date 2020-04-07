@@ -14,7 +14,7 @@ module PagSeguro
 
     protected
       def get(path, options = nil, &block)
-        client.connection.get(path, options, &block).body
+        connection.get(path, options, &block).body
       end
 
       def post(path, options = nil, &block)
