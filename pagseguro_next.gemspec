@@ -18,15 +18,15 @@ Gem::Specification.new do |spec|
   spec.files        += Dir.glob("lib/**/*.rb")
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday", [">= 0.7.4", "< 1.0"]
+  spec.add_dependency "faraday", "~> 0.17"
   spec.add_dependency "faraday_middleware", "~> 0.13"
-  spec.add_dependency "hashie", [">= 3.4.6", "< 3.7.0"]
+  spec.add_dependency "hashie", ">= 3.4.6"
   spec.add_dependency "nokogiri", ">= 1.6"
   spec.add_dependency "activesupport", ">= 4"
-  spec.add_dependency "multi_xml", "0.6.0"
+  spec.add_dependency "multi_xml", "~> 0.6"
 
   spec.add_development_dependency "bundler", "~> 1.17"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", ">= 12.3.3"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "vcr", "~> 4.0"
   spec.add_development_dependency "webmock", "~> 3.5"
