@@ -1,11 +1,12 @@
-module PagSeguro
-  class Sessions < Base
-    def create
-      response = api.post "/v2/sessions" do |conn|
-        conn.headers[:accept] = FORMATS[:xml]
-      end
+# frozen_string_literal: true
 
-      parse response.body["session"]
+module PagSeguro
+  class Sessions
+    include Restful
+
+    def create
+      response = post_xml("/v2/sessions")
+      response.session
     end
   end
 end

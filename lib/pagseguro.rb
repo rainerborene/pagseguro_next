@@ -1,4 +1,5 @@
-require "hashie"
+# frozen_string_literal: true
+
 require "active_support/core_ext/string/inflections"
 require "active_support/core_ext/module/delegation"
 require "active_support/core_ext/hash/reverse_merge"
@@ -7,8 +8,8 @@ require "active_support/core_ext/object/json"
 require "active_support/core_ext/module/attribute_accessors"
 
 module PagSeguro
-  autoload :API,            "pagseguro/api"
-  autoload :Base,           "pagseguro/base"
+  autoload :Client,         "pagseguro/client"
+  autoload :Restful,        "pagseguro/restful"
   autoload :Subscriptions,  "pagseguro/subscriptions"
   autoload :PaymentOrders,  "pagseguro/payment_orders"
   autoload :Sessions,       "pagseguro/sessions"
@@ -16,7 +17,7 @@ module PagSeguro
   autoload :Authorizations, "pagseguro/authorizations"
   autoload :Checkout,       "pagseguro/checkout"
   autoload :Transactions,   "pagseguro/transactions"
-  autoload :Response,       "pagseguro/response"
+  autoload :Mash,           "pagseguro/mash"
 
   FORMATS = {
     json: "application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1",
@@ -40,8 +41,8 @@ module PagSeguro
         site: "https://pagseguro.uol.com.br"
       },
       sandbox: {
-        site: "https://sandbox.pagseguro.uol.com.br",
-        api:  "https://ws.sandbox.pagseguro.uol.com.br"
+        api:  "https://ws.sandbox.pagseguro.uol.com.br",
+        site: "https://sandbox.pagseguro.uol.com.br"
       }
     }
   end

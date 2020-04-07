@@ -1,42 +1,40 @@
+# frozen_string_literal: true
+
 module PagSeguro
-  class Checkout < Base
+  class Checkout
+    include Restful
+
     def create(params)
       params = build_request(params).to_xml(encoding: "UTF-8")
-
-      response = api.post "/v2/checkout", params do |conn|
-        conn.headers[:content_type] = FORMATS[:xml]
-        conn.headers[:accept] = FORMATS[:xml]
-      end
-
-      parse response.body["checkout"]
+      response = post_xml("/v2/checkout", params)
+      response.checkout
     end
 
     def url(code)
-      api.build_url :site, "/v2/checkout/payment.html", code: code
+      url_for :site, "/v2/checkout/payment.html", code: code
     end
 
     private
-
-    def build_request(params)
-      builder do
-        checkout do
-          currency "BRL"
-          sender do
-            ip params[:remote_ip]
-          end if params.key?(:remote_ip)
-          items do
-            item do
-              id params[:id]
-              description { cdata(params[:description]) }
-              amount format("%.2f", params[:amount].to_f)
-              quantity 1
+      def build_request(params)
+        builder do
+          checkout do
+            currency "BRL"
+            sender do
+              ip params[:remote_ip]
+            end if params.key?(:remote_ip)
+            items do
+              item do
+                id params[:id]
+                description { cdata(params[:description]) }
+                amount format("%.2f", params[:amount].to_f)
+                quantity 1
+              end
             end
-          end
-          shipping do
-            addressRequired false
+            shipping do
+              addressRequired false
+            end
           end
         end
       end
-    end
   end
 end

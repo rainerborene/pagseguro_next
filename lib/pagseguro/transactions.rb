@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 module PagSeguro
-  class Transactions < Base
+  class Transactions
+    include Restful
+
     STATUSES = {
       "0" => :initiated,
       "1" => :waiting_payment,
@@ -14,25 +18,15 @@ module PagSeguro
     }
 
     def find(code)
-      response = api.get "/v3/transactions/#{code}" do |conn|
-        conn.headers[:accept] = FORMATS[:xml]
-      end
-
-      parse_body response
+      transform get_xml("/v3/transactions/#{code}")
     end
 
     def find_by_notification_code(code)
-      response = api.get "/v2/transactions/notifications/#{code}" do |conn|
-        conn.headers[:accept] = FORMATS[:xml]
-      end
-
-      parse_body response
+      transform get_xml("/v2/transactions/notifications/#{code}")
     end
 
     private
-
-    def parse_body(response)
-      parse(response.body).yield_self do |body|
+      def transform(body)
         if body.transaction?
           body.transaction.status = STATUSES[body.transaction.status]
           body.transaction
@@ -42,6 +36,5 @@ module PagSeguro
           body
         end
       end
-    end
   end
 end
