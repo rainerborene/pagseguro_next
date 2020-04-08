@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/CF0FF9773A3A75266463EFACE34F89EC/payment-orders?email=rainerborene@gmail.com&page=0&status=5&token=95C04C6646BD4DA1948CBAF0684EAE7A
+    uri: https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/CF0FF9773A3A75266463EFACE34F89EC/payment-orders?email=rainerborene@gmail.com&token=95C04C6646BD4DA1948CBAF0684EAE7A
     body:
       encoding: US-ASCII
       string: ''

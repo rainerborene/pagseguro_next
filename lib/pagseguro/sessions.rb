@@ -5,7 +5,7 @@ module PagSeguro
     include Restful
 
     def create
-      response = post_xml("/v2/sessions")
+      response = post("/v2/sessions", nil, xml: :simple)
       response.session
     end
   end

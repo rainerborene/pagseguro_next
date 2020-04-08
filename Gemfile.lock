@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pagseguro_next (1.0.1)
+    pagseguro_next (1.0.2)
       activesupport (>= 4)
       faraday (~> 0.17)
       faraday_middleware (~> 0.13)

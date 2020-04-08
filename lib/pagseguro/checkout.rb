@@ -5,8 +5,8 @@ module PagSeguro
     include Restful
 
     def create(params)
-      params = build_request(params).to_xml(encoding: "UTF-8")
-      response = post_xml("/v2/checkout", params)
+      body = build_request(params).to_xml(encoding: "UTF-8")
+      response = post("/v2/checkout", body, xml: :simple)
       response.checkout
     end
 

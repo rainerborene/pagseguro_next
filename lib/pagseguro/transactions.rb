@@ -18,11 +18,11 @@ module PagSeguro
     }
 
     def find(code)
-      transform get_xml("/v3/transactions/#{code}")
+      transform get("/v3/transactions/#{code}", nil, xml: :simple)
     end
 
     def find_by_notification_code(code)
-      transform get_xml("/v2/transactions/notifications/#{code}")
+      transform get("/v2/transactions/notifications/#{code}", nil, xml: :simple)
     end
 
     private

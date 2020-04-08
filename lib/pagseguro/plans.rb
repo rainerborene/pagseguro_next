@@ -5,8 +5,8 @@ module PagSeguro
     include Restful
 
     def create(params)
-      xml = build_request(params).to_xml
-      post_xml("/pre-approvals/request", xml)
+      body = build_request(params).to_xml
+      post("/pre-approvals/request", body, xml: :versioned)
     end
 
     def update(code, params)

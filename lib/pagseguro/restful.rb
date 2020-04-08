@@ -13,11 +13,13 @@ module PagSeguro
     end
 
     protected
-      def get(path, options = nil, headers = nil)
+      def get(path, options = {}, xml: nil)
+        headers = headerize(xml) if xml
         connection.get(path, options, headers).body
       end
 
-      def post(path, options = nil, headers = nil)
+      def post(path, options = {}, xml: nil)
+        headers = headerize(xml) if xml
         connection.post(path, options, headers).body
       end
 
@@ -33,16 +35,12 @@ module PagSeguro
         connection.delete(path, options).body
       end
 
-      def xml_headers
-        { accept: ACCEPTS[:xml], content_type: FORMATS[:xml] }
-      end
-
-      def get_xml(path, options = nil)
-        get(path, options, xml_headers)
-      end
-
-      def post_xml(path, options = nil)
-        post(path, options, xml_headers)
+      def headerize(xml)
+        if xml == :simple
+          { accept: FORMATS[:xml], content_type: FORMATS[:xml] }
+        elsif xml == :versioned
+          { accept: ACCEPTS[:xml], content_type: FORMATS[:xml] }
+        end
       end
 
       def parameterize(hash)

@@ -16,13 +16,13 @@ module PagSeguro
     }
 
     def create(params)
-      xml = build_request(params).to_xml
-      response = post_xml("/v2/authorizations/request", xml)
+      body = build_request(params).to_xml
+      response = post("/v2/authorizations/request", body, xml: :simple)
       response.authorization_request
     end
 
     def find_by_notification_code(code)
-      response = get_xml("/v2/authorizations/notifications/#{code}")
+      response = get("/v2/authorizations/notifications/#{code}", nil, xml: :simple)
       response.authorization
     end
 

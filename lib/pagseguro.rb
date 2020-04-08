@@ -20,13 +20,13 @@ module PagSeguro
   autoload :Mash,           "pagseguro/mash"
 
   ACCEPTS = {
-    json: "application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1",
-    xml: "application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1"
+    json: "application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1",
+    xml: "application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1"
   }
 
   FORMATS = {
-    json: "application/json",
-    xml: "application/xml"
+    json: "application/json;charset=ISO-8859-1",
+    xml: "application/xml;charset=ISO-8859-1"
   }
 
   mattr_accessor :token
