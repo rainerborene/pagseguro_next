@@ -19,7 +19,7 @@ module PagSeguro
         conn.response :raise_error
         conn.adapter :net_http
         conn.params = auth_params
-        conn.headers[:accept] = FORMATS[:json]
+        conn.headers[:accept] = ACCEPTS[:json]
       end
     end
 

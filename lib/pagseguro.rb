@@ -19,9 +19,14 @@ module PagSeguro
   autoload :Transactions,   "pagseguro/transactions"
   autoload :Mash,           "pagseguro/mash"
 
+  ACCEPTS = {
+    json: "application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1",
+    xml: "application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1"
+  }
+
   FORMATS = {
-    json: "application/vnd.pagseguro.com.br.v3+json;charset=ISO-8859-1",
-    xml: "application/xml;charset=ISO-8859-1"
+    json: "application/json",
+    xml: "application/xml"
   }
 
   mattr_accessor :token

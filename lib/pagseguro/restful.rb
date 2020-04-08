@@ -13,12 +13,12 @@ module PagSeguro
     end
 
     protected
-      def get(path, options = nil, &block)
-        connection.get(path, options, &block).body
+      def get(path, options = nil, headers = nil)
+        connection.get(path, options, headers).body
       end
 
-      def post(path, options = nil, &block)
-        connection.post(path, options, &block).body
+      def post(path, options = nil, headers = nil)
+        connection.post(path, options, headers).body
       end
 
       def put(path, options = {})
@@ -33,30 +33,24 @@ module PagSeguro
         connection.delete(path, options).body
       end
 
+      def xml_headers
+        { accept: ACCEPTS[:xml], content_type: FORMATS[:xml] }
+      end
+
       def get_xml(path, options = nil)
-        get(path, options) do |conn|
-          conn.headers[:content_type] = FORMATS[:xml]
-          conn.headers[:accept] = FORMATS[:xml]
-        end
+        get(path, options, xml_headers)
       end
 
       def post_xml(path, options = nil)
-        post(path) do |conn|
-          conn.headers[:content_type] = FORMATS[:xml]
-          conn.headers[:accept] = FORMATS[:xml]
-        end
+        post(path, options, xml_headers)
       end
 
       def parameterize(hash)
-        hash.as_json.deep_transform_keys! do |key|
-          key.to_s.camelize(:lower)
-        end
+        hash.as_json.deep_transform_keys! { |key| key.to_s.camelize(:lower) }
       end
 
       def builder(&block)
-        Nokogiri::XML::Builder.new do |xml|
-          xml.instance_eval(&block)
-        end
+        Nokogiri::XML::Builder.new { |xml| xml.instance_eval(&block) }
       end
   end
 end

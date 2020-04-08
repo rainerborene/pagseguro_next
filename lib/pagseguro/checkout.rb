@@ -26,7 +26,7 @@ module PagSeguro
               item do
                 id params[:id]
                 description { cdata(params[:description]) }
-                amount format("%.2f", params[:amount].to_f)
+                amount format("%.2f", params[:amount])
                 quantity 1
               end
             end
