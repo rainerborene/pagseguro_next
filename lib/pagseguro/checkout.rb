@@ -33,6 +33,7 @@ module PagSeguro
             shipping do
               addressRequired false
             end
+            redirectURL params[:redirect_url] if params.key?(:redirect_url)
           end
         end
       end

@@ -12,7 +12,8 @@ class PagSeguro::CheckoutTest < Minitest::Test
       @client.checkout.create(
         id: "10",
         description: "VideoMaker Academy",
-        amount: 197.0
+        amount: 197.0,
+        redirect_url: "https://google.com"
       )
     end
 
